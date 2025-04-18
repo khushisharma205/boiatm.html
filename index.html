@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM</title>
+    <link rel="stylesheet" href="atmp.css">
+    <script>
+function showMenu() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('menu').style.display = 'block';
+}
+function showSection(section) {
+    const sections = ['deposit', 'withdraw', 'transfer'];
+    sections.forEach(function (sec) {
+        document.getElementById(sec).style.display = 'none';
+    });  
+    document.getElementById(section).style.display = 'block'; 
+}
+ let balance = 2000; // Initial balance
+        function handleDeposit() {
+            const account = document.getElementById('deposit-account').value.trim();
+            const amount = parseFloat(document.getElementById('deposit-amount').value);
+
+            if (!account) {
+                alert("Please enter a valid account number.");
+                return;
+            }
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid deposit amount.");
+                return;
+            }
+
+            balance += amount;
+            alert(`Deposit successful! You deposited ₹${amount.toFixed(2)}. Your new balance is: ₹${balance.toFixed(2)}`);
+        }
+
+        function handleWithdrawal() {
+            const amount = parseFloat(document.getElementById('withdraw-amount').value);
+            if (isNaN(amount) || amount <= 0 || amount > balance) {
+                alert("Please enter a valid withdrawal amount.");
+                return;
+            }
+
+            balance -= amount;
+            alert(`Withdrawal successful! You withdrew ₹${amount.toFixed(2)}. Your new balance is: ₹${balance.toFixed(2)}`);
+        }
+
+        function handleTransfer() {
+            const transferAccount = document.getElementById('transfer-account').value.trim();
+            const amount = parseFloat(document.getElementById('transfer-amount').value);
+            if (!transferAccount) {
+                alert("Please enter a valid transfer account number.");
+                return;
+            }
+
+            if (isNaN(amount) || amount <= 0 || amount > balance) {
+                alert("Please enter a valid transfer amount.");
+                return;
+            }
+
+            balance -= amount;
+            alert(`Transfer successful! ₹${amount.toFixed(2)} has been transferred to account ${transferAccount}. Your new balance is: ₹${balance.toFixed(2)}`);
+        }
+</script>  
+</head>
+<body background="bankbacground.jpeg">
+  <h5><a><u><i><marquee scrollamount="50" direction="left">BANK OF INDIA</marquee></a></u> </i></h5>
+  <h6>Balance enquiry</h6>
+ 
+    <div class="atm-container" id="login-screen">
+        <h1>ATM</h1>
+        <div class="input">
+            <label for="account-number">ACCOUNT NUMBER</label><br>
+            <input type="text" id="account-number" size="25" placeholder="Enter your Account no"><br>
+            <label for="pin">PIN</label><br>
+            <input type="password" id="pin" size="25" placeholder="Enter your PIN"><br>
+            <button class="btn" onclick="showMenu()">Login</button><br>
+        </div>
+    </div>
+
+    <div class="atm-container" id="menu" style="display: none;">
+        <div class="option">
+            <h2>Saving account</h2>
+            <h2>Click your choice</h2><br>
+            <button onclick="showSection('deposit')">Deposit</button>
+            <button onclick="showSection('withdraw')">Withdraw</button>
+            <button onclick="showSection('transfer')">Transfer</button>
+        </div>
+
+        <div id="deposit" style="display: none;">
+            <h4>Deposit</h4><br>
+            <input type="text" id="deposit-account" size="25" placeholder="Enter your Account number"><br>
+            <input type="text" id="deposit-amount" size="25" placeholder="Enter  Amount to deposit"><br>
+         <button onclick="handleDeposit()" id="deposit-submit">Deposit</button>
+
+        </div><br>
+
+        <div id="withdraw" style="display: none;">
+            <h4>Withdraw</h4><br>
+            <input type="text" id="withdraw-account" size="25" placeholder="Enter your Account no"><br>
+            <input type="text" id="withdraw-amount" size="25" placeholder="Enter Amount"><br>
+            <button onclick="handleWithdrawal()" id="withdraw-submit">Withdraw</button>
+        </div><br>
+
+        <div id="transfer" style="display: none;">
+            <h4>Transfer</h4><br>
+           <input type="text" id="transfer-account" size="25" placeholder="Enter Transfer Account No"><br>
+            <input type="text" id="transfer-amount" size="25" placeholder="Enter amount to transfre"><br> 
+            <button id="transfer-submit"onclick="handleTransfer()">Transfer</button>
+        </div><br>
+    </div>
+    <h7><a href="https://bankofindia.co.in/"> Any help<<<<----click here</a></h7>
+</body>
+</html>

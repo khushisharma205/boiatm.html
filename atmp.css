@@ -1,0 +1,119 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image:url(../bankbacground.jpeg) ;
+    margin: 0;
+    padding: 0;
+    
+}
+
+h1, h2, h4 {
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* ATM Container */
+.atm-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+background-color:crimson;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.input {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: crimson;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color:greenyellow;
+    border: none;
+    border-radius: 5px;
+   color: mediumvioletred;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #001bb3;
+}
+
+/* Section Options */
+.option button {
+    margin: 10px 0;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Styling for different sections */
+#deposit, #withdraw, #credit, #transfer {
+    display: none;
+}
+
+/* Active state for buttons */
+button:active {
+    color: yellow;
+        background-color: rgb(19, 110, 39);
+    transform: scale(0.98);
+}
+
+/* Error/Alert Messages */
+.alert {
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px;
+}
+h5{
+    font-size-adjust: calc(2);
+    background-color: aqua;
+    color: darkorange;
+    
+}
+h6{
+    font-size-adjust: calc(2);
+    text-align: center;
+    text-decoration: underline;
+    color: blueviolet;
+}
+h7{
+ color:yellow;
+ font-size-adjust: calc(1);
+}
